@@ -1,11 +1,17 @@
 import { Machine } from "@/types"
 import { Card, CardContent, Chip, Stack, Typography } from "@mui/material"
+import Link from "next/link";
 
 type MachineCardProps = {
   machine: Machine;};
 
 const MachineCard = ({machine}:MachineCardProps) => {
   return (
+    <Link
+    href={`/machines/${machine.id}`}
+   style={{textDecoration:'none', display:'block'}}
+   
+   >
   <Card>
     <CardContent>
 <Stack spacing={1}>
@@ -29,6 +35,7 @@ const MachineCard = ({machine}:MachineCardProps) => {
 </Stack>
     </CardContent>
   </Card>
+  </Link>
   )
 }
 

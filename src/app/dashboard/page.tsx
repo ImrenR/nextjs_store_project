@@ -1,3 +1,4 @@
+import MachineCard from '@/components/dashboard/MachineCard';
 import SummaryCard from '@/components/dashboard/SummaryCard';
 import { machines } from '@/lib/mock/data';
 import { Container, Grid, Typography } from '@mui/material';
@@ -31,9 +32,18 @@ const DashboardPge = () => {
         </Grid>
       </Grid>
 
-      <Typography>
+      <Typography variant='h5' fontWeight="bold" mb={2}>
         Machines
       </Typography>
+
+      <Grid container spacing={2}>
+        {machines.map((machine)=> (
+          <Grid key={machine.id} size={{xs:12, md:6}}>
+
+<MachineCard machine={machine}/>
+          </Grid>
+        ))}
+      </Grid>
     </Container>
   )
 }
