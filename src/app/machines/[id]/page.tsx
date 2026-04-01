@@ -1,8 +1,9 @@
 import { machines } from "@/lib/mock/data";
 import { Container, Typography } from "@mui/material";
+import { notFound } from "next/navigation";
 
-type Props = {
-  params: Promise<{id:string}>}
+ type Props = {
+   params: Promise<{id:string}>}
 
 
 const MachineDetailsPage = async ({params}:Props) => {
@@ -14,7 +15,7 @@ const MachineDetailsPage = async ({params}:Props) => {
   const machine = machines.find((u)=> u.id === id);
 
   if(!machine) {
-    return <div>Not found..</div>
+    notFound();
   }
   
   
