@@ -15,7 +15,7 @@ const MachineDetailsClient = ({machine}:MachineDetailsClientProps) => {
 <Typography color="text.secondary" mb={1}>
   {machine.location}
 </Typography>
-<Typography>
+<Typography mb={2}>
  Status : {machine.status}
 </Typography>
 <ProductTable products={machine.products}/>

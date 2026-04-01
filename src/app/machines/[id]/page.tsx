@@ -1,5 +1,5 @@
+import MachineDetailsClient from "@/components/machines/MachineDetailsClient";
 import { machines } from "@/lib/mock/data";
-import { Container, Typography } from "@mui/material";
 import { notFound } from "next/navigation";
 
  type Props = {
@@ -20,7 +20,7 @@ const MachineDetailsPage = async ({params}:Props) => {
   
   
   return (
- <MachineDetailsPage machine={machine}/>
+ <MachineDetailsClient machine={machine}/>
   )
 }
 
