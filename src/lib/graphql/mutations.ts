@@ -19,4 +19,12 @@ export const UPDATE_PRODUCT = `
   }
 `;
 
+export const DELETE_PRODUCT = `
+  mutation DeleteProduct($id: ID!) {
+    deleteProduct(id: $id) {
+      id
+    }
+  }
+`;
+
 // ($input: AddProductInput!) => Backend e bir input gondrecegim demek ! required demek
