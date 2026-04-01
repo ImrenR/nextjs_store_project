@@ -1,7 +1,7 @@
 "use client"
 
 import { Machine, Product } from "@/types"
-import { Button, Container, Typography } from "@mui/material";
+import { Button, Container, Dialog, Typography } from "@mui/material";
 import ProductTable from "./ProductTable";
 import { useState } from "react";
 
@@ -12,19 +12,10 @@ type MachineDetailsClientProps = {
 const MachineDetailsClient = ({machine}:MachineDetailsClientProps) => {
   
   const [products, setProducts] = useState<Product[]>(machine.products)
-  
-  const handleButton = ()=> {
-   
-    const newProduct: Product = {
-      id: crypto.randomUUID(),
-      name: "New Product",
-      price: 2.5,
-      stock: 5,
-    };
+  const [open, setOpen] = useState(false);
 
-    setProducts((p) => [...p, newProduct]);
-  };
-  
+   
+   
   
   return (
     <Container sx={{py:4}}>
@@ -39,10 +30,12 @@ const MachineDetailsClient = ({machine}:MachineDetailsClientProps) => {
 </Typography>
 
 <Button variant="contained" sx={{mb:2}}
-onClick={handleButton}>
+onClick={()=>setOpen(true)}>
   Add Product
 </Button>
-
+<Dialog open={open} onClose={() => setOpen(false)}>
+  <div style={{ padding: 20 }}>Hello Dialog</div>
+</Dialog>
 <ProductTable products={products}/>
     </Container>
   )
