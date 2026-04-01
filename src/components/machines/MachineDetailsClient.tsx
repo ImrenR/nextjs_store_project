@@ -16,9 +16,9 @@ type MachineDetailsClientProps = {
 };
 
 const MachineDetailsClient = ({ machine }: MachineDetailsClientProps) => {
+  
   const [products, setProducts] = useState<Product[]>(machine.products);
   const [open, setOpen] = useState(false);
-
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [stock, setStock] = useState("");
@@ -43,14 +43,12 @@ const MachineDetailsClient = ({ machine }: MachineDetailsClientProps) => {
 
   const handleAdd = () => {
     if (!isFormValid) return;
-
     const newProduct: Product = {
       id: crypto.randomUUID(),
       name: name.trim(),
       price: Number(price),
       stock: Number(stock),
     };
-
     setProducts((prevProducts) => [...prevProducts, newProduct]);
     handleClose();
   };
@@ -92,7 +90,7 @@ const MachineDetailsClient = ({ machine }: MachineDetailsClientProps) => {
             margin="dense"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
-            inputProps={{ min: 0 }}
+        
           />
 
           <TextField
@@ -102,7 +100,7 @@ const MachineDetailsClient = ({ machine }: MachineDetailsClientProps) => {
             margin="dense"
             value={stock}
             onChange={(e) => setStock(e.target.value)}
-            inputProps={{ min: 0 }}
+       
           />
 
           <Button
